@@ -1,8 +1,10 @@
 ﻿#include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include "MyHeader.h"
 
 using namespace std;
+
 
 class Person
 {
@@ -20,7 +22,6 @@ public:
     int kor;
     int eng;
     double avg;
-
     Student(string name = "홍길동", int age = 0, int kor = 0, int eng = 0) : Person(name, age), kor(kor), eng(eng)
     {
         avg = (double)((kor + eng) / 2);
@@ -69,9 +70,8 @@ int main()
 
 	for (int i = 0; i < num; i++) fscanf(fin, "%s", stds[i].name); 
 	for (int i = 0; i < num; i++) fscanf(fin, "%d", &stds[i].kor); 
-	for (int i = 0; i < num; i++) fscanf(fin, "%d", &stds[i].eng);
-	for (int i = 0; i < num; i++) stds[i].avg = (double)(stds[i].kor + stds[i].eng) / 2;
-
+	for (int i = 0; i < num; i++) fscanf(fin, "%d", &stds[i].eng); 
+	for (int i = 0; i < num; i++) stds[i].avg = (double)((stds[i].kor + stds[i].eng) / 2);
 	
 	fprintf(fout, "Before >> \n");
 	fprintf(fout, "%-7s %-7s %-7s %-7s\n", "이름", "국어", "영어", "평균");
@@ -80,7 +80,7 @@ int main()
 	for (int i = 0; i < num; i++) 
 	{
 		fprintf(fout, "%7s %7d %7d %7.2f\n", stds[i].name, stds[i].kor, stds[i].eng, stds[i].avg);
-		printf("%7s %7d %7d %7.2f\n", stds[i].name, stds[i].kor, stds[i].eng, stds[i].avg);
+		//printf("%7s %7d %7d %7.2f\n", stds[i].name, stds[i].kor, stds[i].eng, stds[i].avg);
 	}
 
 	stuSort(stds, num);
