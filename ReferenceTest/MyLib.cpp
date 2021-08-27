@@ -1,5 +1,7 @@
-#include <math.h>
+#include<math.h>
 
+//Swap 관련: 링커 에러를 뱉어냄..
+/*
 void swapVal(int a, int b)
 {
     int tmp = a;
@@ -20,6 +22,7 @@ void swapRef(int* a, int* b)
     *a = *b;
     *b = tmp;
 }
+*/
 
 
 class Point
@@ -46,6 +49,22 @@ public:
 
         double dist = sqrt(delta_x + delta_y); // sqrt: math.h 필요
         return dist;
+    }
+    Point operator+(Point p)
+    {
+        int x = this->x + p.x;
+        int y = this->y + p.y;
+        return Point(x, y);
+    }
+    Point operator+=(Point p)
+    {
+        x += p.x; y += p.y;
+        return *this; //this는 자신을 가리키는 포인터니까
+    }
+    //scalar multiplication
+    Point operator*(int s)
+    {
+        return Point((this->x) * s, (this->y) * s);
     }
 };
 

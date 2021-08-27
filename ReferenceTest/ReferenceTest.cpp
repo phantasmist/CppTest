@@ -1,4 +1,4 @@
-﻿#include <cstdio> //stdioh.h 대신 쓸 수 있음
+﻿//#include <cstdio> //stdioh.h 대신 쓸 수 있음
 #include <iostream>   // 괄호(<>): 컴파일러 기본경로
 //#include "MyHeader.h" // 따옴표(""): 상대경로
 #include "MyLib.cpp"
@@ -32,6 +32,12 @@ int main()
     Point* p3 = new Point(20, 30);
     printf("Point class 변수의 동적 할당: p3(%d, %d)\n", p3->X(), p3->Y());
     printf("distance b/w p1(%d, %d) and  p2(%d, %d) is %f\n", p1.X(), p1.Y(), p2.X(), p2.Y(), p1.distance(p2));
+    Point p4 = p1 + p2;
+    printf("p1(%d, %d)과 p2(%d, %d)의 합은 p4(%d, %d) 입니다.\n",
+        p1.X(), p1.Y(), p2.X(), p2.Y(), p4.X(), p4.Y());
+    Point p5 = (*p3) * 5;
+    printf("p3(%d, %d)*5 = p5(%d, %d) \n",
+        p3->X(), p3->Y(), p5.X(), p5.Y());
 
     Point3D pp1;
     Point3D pp2(10, 20, 30);

@@ -10,15 +10,15 @@ void showClass(Student &st1) //reference 아규먼트
 	cout << "eng: " << st1.eng() << "  ";
 	cout << "avg: " << st1.avg() << "  ";
 	cout << "tot: " << st1.tot() << "  ";
-	//cout << "rank: " << st1.rank() << endl;
+	cout << "rank: " << st1.rank() << endl;
 }
 
 void main() 
 {
+	string st = "string";
+
 	Student st1(0, 80, 73, "홍길동", 3);
 	//showClass(st1);
-
-
 	int num, age, kor, eng;
 	char name[20]; // 인코딩 ANSI로 할 것
 	int cnt = 0;
@@ -44,12 +44,16 @@ void main()
 			if (stu[i]->avg() < stu[j]->avg())
 			{
 				//실제메모리 위치를 바꾸는게 아니라 포인터만 바꿔서 편하게 가자
-				swapRef((int*)stu[i], (int*)stu[j]);
+				//swapRef((int*)&stu[i], (int*)&stu[j]); //&stu[i]: stu[i]를 가리키는 주소
+				//swap(stu[i], stu[j]); //포인터 변수는 int 타입인가(4byte니까)
+				swapRef((int&)stu[i], (int&)stu[j]);
+				
+
 			}
 		}
 	}
 
-	cout << "After\n";
+	cout << "\nAfter\n";
 	for (int i = 0; i < cnt; i++)
 	{
 		showClass(*stu[i]);

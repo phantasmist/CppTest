@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-//Prototype µé
-void swapVal(int a, int b);
-void swapRef(int* a, int* b)
+
+//void swapVal(int a, int b);
+void swap(int* a, int* b)
 {
     int tmp = *a;
     *a = *b;
@@ -42,6 +42,12 @@ public:
 
         double dist = sqrt(delta_x + delta_y); // sqrt: math.h ÇÊ¿ä
         return dist;
+    }
+    Point operator+(Point p)
+    {
+        int x = this->x + p.x;
+        int y = this->y + p.y;
+        return Point(x, y);
     }
 };
 
@@ -102,7 +108,7 @@ private:
 
     void calc() {
         Tot = Kor + Eng;
-        Avg = Tot / 2;
+        Avg = Tot / 2.0;
     }
 
 public:
